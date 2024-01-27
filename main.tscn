@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf7s4cqfn4ly1"]
+[gd_scene load_steps=6 format=3 uid="uid://cf7s4cqfn4ly1"]
 
 [ext_resource type="Texture2D" uid="uid://crc3sgs3wjl7m" path="res://spritesheet.png" id="1_sbwyv"]
 [ext_resource type="PackedScene" uid="uid://c4es86373kq26" path="res://player/player.tscn" id="2_psbdu"]
+[ext_resource type="PackedScene" uid="uid://6y5ct0eh1hxa" path="res://gag_spawner/gag_spawner.tscn" id="3_8jvfe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gejao"]
 texture = ExtResource("1_sbwyv")
@@ -42,24 +43,4 @@ position = Vector2(168, 144)
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(480, 270)
 
-[node name="Label" type="Label" parent="."]
-offset_left = -200.0
-offset_top = 16.0
-offset_right = -68.0
-offset_bottom = 39.0
-text = "MICROPHONE -> "
-
-[node name="Label2" type="Label" parent="."]
-offset_left = -336.0
-offset_top = -32.0
-offset_right = -277.0
-offset_bottom = -9.0
-text = "Balloon"
-
-[node name="Label3" type="Label" parent="."]
-offset_left = -208.0
-offset_top = 64.0
-offset_right = -80.0
-offset_bottom = 113.0
-text = "ANVIL SHRINK -> 
-AIRPUMP GROW"
+[node name="GagSpawner" parent="." instance=ExtResource("3_8jvfe")]

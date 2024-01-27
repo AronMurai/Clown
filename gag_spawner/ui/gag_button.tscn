@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bffe45tcnqfb3"]
+
+[ext_resource type="Script" path="res://gag_spawner/ui/gag_button.gd" id="1_itijp"]
+[ext_resource type="Texture2D" uid="uid://cp5j2g6f8dman" path="res://gag_spawner/ui/cooldown_texture.png" id="2_thf5k"]
+[ext_resource type="Texture2D" uid="uid://dl1e2r3ul7t5o" path="res://gags/banana_peel/banana_peel_icon.tres" id="3_6cdj7"]
+
+[node name="GagButton" type="Button"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_itijp")
+
+[node name="CooldownBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+max_value = 3.0
+step = 0.01
+fill_mode = 4
+texture_under = ExtResource("2_thf5k")
+texture_progress = ExtResource("2_thf5k")
+tint_progress = Color(0.352941, 0.74902, 0, 1)
+
+[node name="GagIcon" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("3_6cdj7")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="pressed" from="." to="." method="_on_GagButton_pressed"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]

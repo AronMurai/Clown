@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GagResource" load_steps=3 format=3 uid="uid://c7iao8su5adck"]
+
+[ext_resource type="Texture2D" uid="uid://dl1e2r3ul7t5o" path="res://gags/banana_peel/banana_peel_icon.tres" id="1_2r5w7"]
+[ext_resource type="Script" path="res://gags/gag_resource.gd" id="1_xkhbg"]
+
+[resource]
+script = ExtResource("1_xkhbg")
+name = "BANANA_PEEL"
+spawnCooldown = 10.0
+icon = ExtResource("1_2r5w7")

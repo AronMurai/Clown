@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://6y5ct0eh1hxa"]
+
+[ext_resource type="Script" path="res://gag_spawner/gag_spawner.gd" id="1_uhum8"]
+[ext_resource type="PackedScene" uid="uid://d1gq02ye7v2nt" path="res://gags/banana_peel/banana_peel.tscn" id="2_lomfg"]
+[ext_resource type="Resource" uid="uid://c7iao8su5adck" path="res://gags/banana_peel/banana_peel_resource.tres" id="2_soqy6"]
+[ext_resource type="Resource" uid="uid://bqoace2wfmftp" path="res://gags/tnt/tnt_resource.tres" id="3_0dvfc"]
+[ext_resource type="PackedScene" uid="uid://bb1awqoadapq5" path="res://gags/tnt/tnt.tscn" id="3_o1h5y"]
+[ext_resource type="PackedScene" uid="uid://bffe45tcnqfb3" path="res://gag_spawner/ui/gag_button.tscn" id="4_jjflg"]
+
+[node name="GagSpawner" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uhum8")
+activeGagResources = Array[Resource("res://gags/gag_resource.gd")]([ExtResource("2_soqy6"), ExtResource("3_0dvfc")])
+gags = {
+"BANANA_PEEL": ExtResource("2_lomfg"),
+"TNT": ExtResource("3_o1h5y")
+}
+gagButton = ExtResource("4_jjflg")
+
+[node name="GagButtonContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 448.0
+offset_right = 920.0
+offset_bottom = 512.0
+
+[node name="GagHolder" type="Node" parent="."]

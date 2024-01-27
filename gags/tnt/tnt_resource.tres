@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GagResource" load_steps=3 format=3 uid="uid://bqoace2wfmftp"]
+
+[ext_resource type="Script" path="res://gags/gag_resource.gd" id="1_qjy8c"]
+[ext_resource type="Texture2D" uid="uid://cmx5an0pq5fyu" path="res://gags/tnt/tnt_icon.tres" id="1_xuxry"]
+
+[resource]
+script = ExtResource("1_qjy8c")
+name = "TNT"
+spawnCooldown = 10.0
+icon = ExtResource("1_xuxry")

@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4es86373kq26"]
+[gd_scene load_steps=8 format=3 uid="uid://c4es86373kq26"]
 
 [ext_resource type="Texture2D" uid="uid://crc3sgs3wjl7m" path="res://spritesheet.png" id="1_l0jcs"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_wwgxp"]
-[ext_resource type="PackedScene" uid="uid://6y5ct0eh1hxa" path="res://gag_spawner.tscn" id="3_28ild"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cplsh"]
 atlas = ExtResource("1_l0jcs")
@@ -64,7 +63,5 @@ target_position = Vector2(0, 0)
 collision_mask = 4
 
 [node name="StunTimer" type="Timer" parent="."]
-
-[node name="GagSpawner" parent="." instance=ExtResource("3_28ild")]
 
 [connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]

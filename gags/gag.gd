@@ -3,6 +3,8 @@ extends RigidBody2D
 
 const popUpHeight = 30.0
 const animationLength = 0.5
+@export var gagResource : GagResource
+
 func discard():
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)
