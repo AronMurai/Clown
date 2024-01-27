@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4es86373kq26"]
+
+[ext_resource type="Texture2D" uid="uid://crc3sgs3wjl7m" path="res://spritesheet.png" id="1_l0jcs"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_wwgxp"]
+[ext_resource type="PackedScene" uid="uid://6y5ct0eh1hxa" path="res://gag_spawner.tscn" id="3_28ild"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cplsh"]
+atlas = ExtResource("1_l0jcs")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80kfe"]
+atlas = ExtResource("1_l0jcs")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5sbd"]
+atlas = ExtResource("1_l0jcs")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2qhqg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cplsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80kfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cplsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5sbd")
+}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omfkw"]
+size = Vector2(48, 64)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 4
+script = ExtResource("1_wwgxp")
+SPEED = 125.0
+ACCELERATION_DEFAULT = 5.0
+ACCELERATION_AIR = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_2qhqg")
+animation = &"run"
+frame_progress = 0.432414
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_omfkw")
+
+[node name="FrontRayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collision_mask = 4
+
+[node name="GroundRayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collision_mask = 4
+
+[node name="StunTimer" type="Timer" parent="."]
+
+[node name="GagSpawner" parent="." instance=ExtResource("3_28ild")]
+
+[connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]

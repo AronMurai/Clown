@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://6y5ct0eh1hxa"]
+
+[ext_resource type="Script" path="res://player/GagSpawner.gd" id="1_sxdww"]
+[ext_resource type="PackedScene" uid="uid://d1gq02ye7v2nt" path="res://gags/banana_peel/banana_peel.tscn" id="2_qqukr"]
+[ext_resource type="PackedScene" uid="uid://xul1d2wye0b0" path="res://gags/tnt/explosion.tscn" id="3_da3uq"]
+
+[node name="GagSpawner" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sxdww")
+gags = Array[Resource]([ExtResource("2_qqukr"), ExtResource("3_da3uq")])

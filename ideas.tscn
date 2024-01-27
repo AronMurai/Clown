@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bhumvoojia1c2"]
+
+[node name="Ideas" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Items:
+- Balloon
+- Anvil -> Shrink, Air Pump -> Grow
+- "
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 336.0
+offset_top = 8.0
+offset_right = 653.0
+offset_bottom = 135.0
+text = "Ideas on Making Games Less OP:
+I want it to be real time (Mr Magoo):
+- Does player have access to ALL items?
+- Do you select items before going?
+- Do you have a limited amount of items?
+- Time limit?
+- Cooldown?"

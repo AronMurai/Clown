@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf7s4cqfn4ly1"]
+
+[ext_resource type="Texture2D" uid="uid://crc3sgs3wjl7m" path="res://spritesheet.png" id="1_sbwyv"]
+[ext_resource type="PackedScene" uid="uid://c4es86373kq26" path="res://player/player.tscn" id="2_psbdu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gejao"]
+texture = ExtResource("1_sbwyv")
+texture_region_size = Vector2i(32, 32)
+0:6/0 = 0
+0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:6/0/physics_layer_0/angular_velocity = 0.0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:6/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:6/0/physics_layer_1/angular_velocity = 0.0
+1:6/0 = 0
+1:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:6/0/physics_layer_0/angular_velocity = 0.0
+1:6/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:6/0/physics_layer_1/angular_velocity = 0.0
+1:6/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -10, -16, -10)
+1:6/0/physics_layer_1/polygon_0/one_way = true
+
+[sub_resource type="TileSet" id="TileSet_nq8nn"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
+physics_layer_1/collision_layer = 4
+physics_layer_1/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_gejao")
+
+[node name="Main" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_nq8nn")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 6, 65536, 0, 6, 131072, 0, 6, 196608, 0, 6, 262144, 0, 6, 327680, 0, 6, 393216, 0, 6, 458752, 0, 6, 524288, 0, 6, 589824, 0, 6, 655360, 0, 6, 1, 0, 6, 2, 0, 6, 3, 0, 6, 4, 0, 6, 5, 0, 6, 6, 0, 6, 7, 0, 6, 8, 0, 6, 9, 0, 6, 10, 0, 6, 11, 0, 6, 12, 0, 6, 13, 0, 6, 14, 0, 6, 15, 0, 6, 16, 0, 6, 393217, 0, 6, 393218, 0, 6, 393219, 0, 6, 393220, 0, 6, 393221, 0, 6, 393222, 0, 6, 327687, 0, 6, 393223, 0, 6, 327686, 65536, 6, 327685, 65536, 6, 327684, 65536, 6, 327690, 0, 6, 327691, 0, 6, 327692, 0, 6, 327693, 0, 6, 327696, 0, 6)
+
+[node name="Player" parent="." instance=ExtResource("2_psbdu")]
+position = Vector2(168, 144)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(480, 270)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -200.0
+offset_top = 16.0
+offset_right = -68.0
+offset_bottom = 39.0
+text = "MICROPHONE -> "
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -336.0
+offset_top = -32.0
+offset_right = -277.0
+offset_bottom = -9.0
+text = "Balloon"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -208.0
+offset_top = 64.0
+offset_right = -80.0
+offset_bottom = 113.0
+text = "ANVIL SHRINK -> 
+AIRPUMP GROW"
