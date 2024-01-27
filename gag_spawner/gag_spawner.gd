@@ -6,21 +6,26 @@ extends Control
 
 var selectedGagResource : GagResource
 var activeButtons : Dictionary 
+var preview : Sprite2D
 
 func _ready():
 	create_buttons(activeGagResources)
 
 func _unhandled_input(event : InputEvent):
+	if event is InputEventMouseMotion:
+		if is_valid_item_spawn(selectedGagResource):
+			preview.global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("SPAWN_ITEM"):
 		if is_valid_item_spawn(selectedGagResource):
 			var selectedGag = gags[selectedGagResource.name].instantiate()
 			$GagHolder.add_child(selectedGag)
 			selectedGag.position = get_global_mouse_position()
 			activeButtons[selectedGagResource.name].activate_cooldown()
+			preview.queue_free()
 
-func update_buttons(activeGagResources : Array[GagResource]):
+func update_buttons(gagResources : Array[GagResource]):
 	remove_buttons()
-	create_buttons(activeGagResources)
+	create_buttons(gagResources)
 
 func create_buttons(gagResources : Array[GagResource]):
 	for gagResource in gagResources:
@@ -39,12 +44,18 @@ func create_button(gagResource : GagResource):
 func remove_buttons():
 	for button in $GagButtonContainer.get_children():
 		button.queue_free()
+		activeButtons.clear()
 
-func set_selected_gag(activeGagResource : GagResource):
-	selectedGagResource = activeGagResource
+func set_selected_gag(gagResource : GagResource):
+	selectedGagResource = gagResource
+	var previewTexture = selectedGagResource.icon
+	preview = Sprite2D.new()
+	preview.texture = previewTexture
+	$GagHolder.add_child(preview)
 
 func is_valid_item_spawn(gagResource : GagResource) -> bool:
 	if not selectedGagResource == null and not activeButtons[gagResource.name].is_on_cooldown():
 		return true
 	return false
+	
 	
