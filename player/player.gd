@@ -11,8 +11,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var acceleration : float
 var moveDirection : Vector2
 var stunned : bool
+var respawnPosition : Vector2
 
 func _ready():
+	respawnPosition = position
 	stunned = false
 	moveDirection = Vector2.RIGHT
 
@@ -56,3 +58,6 @@ func stun(timeStunned : float):
 
 func _on_StunTimer_timeout():
 	stunned = false
+
+func update_checkpoint(checkpointPosition : Vector2):
+	respawnPosition = checkpointPosition

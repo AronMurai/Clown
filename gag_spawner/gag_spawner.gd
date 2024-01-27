@@ -14,7 +14,8 @@ func _ready():
 func _unhandled_input(event : InputEvent):
 	if event is InputEventMouseMotion:
 		if is_valid_item_spawn(selectedGagResource):
-			preview.global_position = get_global_mouse_position()
+			if not preview == null:
+				preview.global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("SPAWN_ITEM"):
 		if is_valid_item_spawn(selectedGagResource):
 			var selectedGag = gags[selectedGagResource.name].instantiate()
@@ -51,6 +52,7 @@ func set_selected_gag(gagResource : GagResource):
 	var previewTexture = selectedGagResource.icon
 	preview = Sprite2D.new()
 	preview.texture = previewTexture
+	preview.scale = Vector2(2.0, 2.0)
 	$GagHolder.add_child(preview)
 
 func is_valid_item_spawn(gagResource : GagResource) -> bool:

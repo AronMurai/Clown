@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce6aavu131g7o"]
+
+[ext_resource type="Script" path="res://gags/boxing_glove/boxing_glove.gd" id="1_pk2rk"]
+[ext_resource type="Texture2D" uid="uid://crc3sgs3wjl7m" path="res://spritesheet.png" id="3_xudrg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pl16"]
+atlas = ExtResource("3_xudrg")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77rfm"]
+size = Vector2(62.5, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xtv7"]
+size = Vector2(64, 64)
+
+[node name="BoxingGlove" type="RigidBody2D"]
+script = ExtResource("1_pk2rk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_3pl16")
+
+[node name="Slider" type="HSlider" parent="."]
+offset_top = -8.0
+offset_right = 192.0
+offset_bottom = 8.0
+max_value = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_77rfm")
+
+[node name="HurtBox" type="Area2D" parent="."]
+position = Vector2(88, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_7xtv7")
+
+[connection signal="value_changed" from="Slider" to="." method="_on_slider_value_changed"]

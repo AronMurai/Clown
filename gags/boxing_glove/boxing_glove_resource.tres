@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GagResource" load_steps=3 format=3 uid="uid://gkw7lik645ms"]
+
+[ext_resource type="Texture2D" uid="uid://c0ulk1jf2ccb4" path="res://gags/boxing_glove/boxing_glove_icon.tres" id="1_l7ifh"]
+[ext_resource type="Script" path="res://gags/gag_resource.gd" id="1_xmnu7"]
+
+[resource]
+script = ExtResource("1_xmnu7")
+name = "BOXING_GLOVE"
+spawnCooldown = 10.0
+icon = ExtResource("1_l7ifh")
