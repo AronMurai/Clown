@@ -32,6 +32,7 @@ func _unhandled_input(event : InputEvent):
 			activeButtons[selectedGagResource.name].activate_cooldown()
 
 func update_buttons(gagResources : Array[GagResource]):
+	selectedGagResource = null
 	remove_buttons()
 	create_buttons(gagResources)
 

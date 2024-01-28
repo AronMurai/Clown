@@ -12,6 +12,7 @@ var acceleration : float
 var moveDirection : Vector2
 var stunned : bool
 var respawnPosition : Vector2
+var mouseOnPlayer : bool
 
 func _ready():
 	respawnPosition = position
@@ -62,3 +63,7 @@ func _on_StunTimer_timeout():
 
 func update_checkpoint(checkpointPosition : Vector2):
 	respawnPosition = checkpointPosition
+
+func _input(event):
+	if (mouseOnPlayer and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT):
+		flip_direction()

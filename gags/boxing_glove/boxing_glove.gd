@@ -14,6 +14,7 @@ func _on_Slider_value_changed(value):
 func _on_body_entered(body):
 	if body is Player:
 		body.position = direction * $Slider.value * 32.0
+
 func _on_StrongHurtBox_body_entered(body):
 	if body is Player:
 		body.velocity = direction * strongHitMagnitude

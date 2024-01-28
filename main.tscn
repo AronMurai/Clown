@@ -11,7 +11,7 @@
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("2_psbdu")]
-position = Vector2(96, 416)
+position = Vector2(4384, 24)
 
 [node name="Levels" type="Node" parent="." node_paths=PackedStringArray("camera", "gagSpawner")]
 script = ExtResource("5_mvy1o")
@@ -27,7 +27,6 @@ metadata/_edit_lock_ = true
 
 [node name="Level2" parent="Levels" instance=ExtResource("7_0ndgd")]
 position = Vector2(4800, -320)
-metadata/_edit_lock_ = true
 
 [node name="Camera" parent="." instance=ExtResource("4_magbm")]
 position = Vector2(480, 256)

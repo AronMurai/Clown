@@ -5,10 +5,10 @@
 [ext_resource type="Resource" uid="uid://c7iao8su5adck" path="res://gags/banana_peel/banana_peel_resource.tres" id="2_j6b82"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7jml"]
-size = Vector2(40, 40)
+size = Vector2(50, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii35x"]
-size = Vector2(40, 40)
+size = Vector2(50, 50)
 
 [node name="BananaPeel" type="RigidBody2D"]
 collision_layer = 2
@@ -20,7 +20,6 @@ stunTime = 0.5
 gagResource = ExtResource("2_j6b82")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3, -7)
 scale = Vector2(2, 2)
 texture = ExtResource("1_4052j")
 region_enabled = true

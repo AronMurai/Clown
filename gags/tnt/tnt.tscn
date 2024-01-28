@@ -35,7 +35,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ero5"]
-size = Vector2(40, 40)
+size = Vector2(60, 60)
 
 [node name="TNT" type="RigidBody2D"]
 collision_layer = 2
@@ -54,7 +54,7 @@ animation = &"IGNITE"
 frame_progress = 0.711911
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_4ero5")
 
 [node name="ExplosionTimer" type="Timer" parent="."]
