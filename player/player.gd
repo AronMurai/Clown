@@ -33,7 +33,6 @@ func _physics_process(delta):
 		flip_direction()
 	
 	$FrontRayCast2D.target_position = moveDirection * $CollisionShape2D.shape.size.x/1.9
-	#Is this bad?? V
 	$GroundRayCast2D.target_position = Vector2(moveDirection.x * $CollisionShape2D.shape.size.x, $CollisionShape2D.shape.size.y) / 1.9  
 	
 	if not stunned:
@@ -63,7 +62,3 @@ func _on_StunTimer_timeout():
 
 func update_checkpoint(checkpointPosition : Vector2):
 	respawnPosition = checkpointPosition
-
-func _input(event):
-	if (mouseOnPlayer and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT):
-		flip_direction()

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://crc3sgs3wjl7m" path="res://spritesheet.png" id="3_xudrg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3pl16"]
+resource_local_to_scene = true
 atlas = ExtResource("3_xudrg")
 region = Rect2(96, 96, 96, 32)
 
@@ -12,7 +13,7 @@ region = Rect2(96, 96, 96, 32)
 size = Vector2(191.625, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xtv7"]
-size = Vector2(64, 64)
+size = Vector2(224, 64)
 
 [sub_resource type="Animation" id="Animation_muh7b"]
 resource_name = "0"
@@ -62,7 +63,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(32.375, 0)]
+"values": [Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -74,7 +75,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(32, 0)]
+"values": [Vector2(0, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -112,6 +113,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_fc605"]
 resource_name = "1"
@@ -137,7 +150,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(64, 0)]
+"values": [Vector2(32, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -173,7 +186,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(88, 0)]
+"values": [Vector2(56, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -185,7 +198,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(64.1875, 0)]
+"values": [Vector2(0, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -197,7 +210,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(127.625, 64)]
+"values": [Vector2(63.625, 64)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -222,6 +235,42 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("WeakHurtBox/CollisionShape2D:shape:size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 64)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("WeakHurtBox/CollisionShape2D:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CollisionShape2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_j303h"]
@@ -284,7 +333,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(88, 0)]
+"values": [Vector2(24, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -308,7 +357,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(191.906, 64)]
+"values": [Vector2(63.9061, 64)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -321,6 +370,54 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(152, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("WeakHurtBox:monitoring")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("StrongHurtBox/CollisionShape2D:shape:size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(224, 64)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("WeakHurtBox/CollisionShape2D:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CollisionShape2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_rhrwr"]
@@ -385,6 +482,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(96, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WeakHurtBox:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("WeakHurtBox:monitoring")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xjbvn"]
 _data = {
@@ -395,7 +516,7 @@ _data = {
 }
 
 [node name="BoxingGlove" type="RigidBody2D"]
-collision_layer = 4
+collision_layer = 6
 collision_mask = 0
 gravity_scale = 0.0
 freeze = true
@@ -412,8 +533,9 @@ scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_3pl16")
 
 [node name="Slider" type="HSlider" parent="."]
+offset_left = -32.0
 offset_top = -8.0
-offset_right = 192.0
+offset_right = 160.0
 offset_bottom = 8.0
 max_value = 2.0
 
@@ -428,17 +550,20 @@ monitoring = false
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StrongHurtBox"]
-position = Vector2(8, 0)
+position = Vector2(-72, 0)
 shape = SubResource("RectangleShape2D_7xtv7")
 
 [node name="WeakHurtBox" type="Area2D" parent="."]
-position = Vector2(88, 0)
+visible = false
+position = Vector2(24, 0)
 collision_layer = 0
+monitoring = false
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeakHurtBox"]
 position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_7xtv7")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://c7iao8su5adck" path="res://gags/banana_peel/banana_peel_resource.tres" id="2_j6b82"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7jml"]
-size = Vector2(50, 50)
+size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii35x"]
 size = Vector2(50, 50)

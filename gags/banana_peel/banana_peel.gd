@@ -11,7 +11,7 @@ func slip(body):
 		body.stun(stunTime)
 		discard()
 	elif body is Gag:
-		body.apply_force(slipDirection * slipMagnitude)
+		body.apply_impulse(slipDirection * slipMagnitude)
 		discard()
 
 func _on_body_entered(body : Node2D):

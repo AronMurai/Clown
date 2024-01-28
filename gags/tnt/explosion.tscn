@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://xul1d2wye0b0"]
+[gd_scene load_steps=10 format=3 uid="uid://xul1d2wye0b0"]
 
 [ext_resource type="Script" path="res://gags/tnt/explosion.gd" id="1_pylmx"]
 [ext_resource type="Texture2D" uid="uid://crc3sgs3wjl7m" path="res://spritesheet.png" id="2_7u4h5"]
@@ -6,30 +6,61 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_67qdx"]
 radius = 128.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mfith"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3r70"]
+atlas = ExtResource("2_7u4h5")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18adp"]
 atlas = ExtResource("2_7u4h5")
 region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roewd"]
+atlas = ExtResource("2_7u4h5")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olr2m"]
+atlas = ExtResource("2_7u4h5")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hay8t"]
+atlas = ExtResource("2_7u4h5")
+region = Rect2(192, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lcygw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mfith")
+"texture": SubResource("AtlasTexture_q3r70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18adp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roewd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olr2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hay8t")
 }],
-"loop": true,
+"loop": false,
 "name": &"EXPLODE",
-"speed": 5.0
+"speed": 14.0
 }]
 
 [node name="Explosion" type="Area2D"]
+position = Vector2(176, 120)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_pylmx")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_67qdx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lcygw")
 animation = &"EXPLODE"
 

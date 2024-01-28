@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://crc3sgs3wjl7m" path="res://spritesheet.png" id="1_aommr"]
 
 [resource]
+resource_local_to_scene = true
 atlas = ExtResource("1_aommr")
 region = Rect2(0, 64, 32, 32)

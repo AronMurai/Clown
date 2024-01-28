@@ -1,3 +1,4 @@
+class_name BoxingGlove
 extends Gag
 
 @export var direction : Vector2
@@ -19,7 +20,6 @@ func _on_StrongHurtBox_body_entered(body):
 	if body is Player:
 		body.velocity = direction * strongHitMagnitude
 		body.stun(stunTime)
-		print('hello')
 	elif body is Gag:
 		body.apply_force(direction * strongHitMagnitude)
 
@@ -27,6 +27,5 @@ func _on_WeakHurtBox_body_entered(body):
 	if body is Player:
 		body.velocity = direction * strongHitMagnitude
 		body.stun(stunTime)
-		print('goodbye')
 	elif body is Gag:
 		body.apply_force(direction * strongHitMagnitude)
