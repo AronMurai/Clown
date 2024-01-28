@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6y5ct0eh1hxa"]
+[gd_scene load_steps=10 format=3 uid="uid://6y5ct0eh1hxa"]
 
 [ext_resource type="Script" path="res://gag_spawner/gag_spawner.gd" id="1_uhum8"]
 [ext_resource type="PackedScene" uid="uid://d1gq02ye7v2nt" path="res://gags/banana_peel/banana_peel.tscn" id="2_lomfg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://gkw7lik645ms" path="res://gags/boxing_glove/boxing_glove_resource.tres" id="4_7losi"]
 [ext_resource type="PackedScene" uid="uid://bffe45tcnqfb3" path="res://gag_spawner/ui/gag_button.tscn" id="4_jjflg"]
 [ext_resource type="PackedScene" uid="uid://ce6aavu131g7o" path="res://gags/boxing_glove/boxing_glove.tscn" id="7_6sk75"]
+[ext_resource type="Texture2D" uid="uid://duu5s1krrgund" path="res://gags/empty_texture.tres" id="9_kc4vt"]
 
 [node name="GagSpawner" type="Control"]
 layout_mode = 3
@@ -35,3 +36,7 @@ offset_right = 920.0
 offset_bottom = 512.0
 
 [node name="GagHolder" type="Node" parent="."]
+
+[node name="Preview" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("9_kc4vt")

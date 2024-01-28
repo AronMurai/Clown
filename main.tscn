@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf7s4cqfn4ly1"]
+[gd_scene load_steps=14 format=3 uid="uid://cf7s4cqfn4ly1"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_he83c"]
 [ext_resource type="PackedScene" uid="uid://c4es86373kq26" path="res://player/player.tscn" id="2_psbdu"]
 [ext_resource type="PackedScene" uid="uid://6y5ct0eh1hxa" path="res://gag_spawner/gag_spawner.tscn" id="3_8jvfe"]
 [ext_resource type="PackedScene" uid="uid://dr44gv2w7j8ga" path="res://levels/level0.tscn" id="3_u70ck"]
@@ -10,11 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://do0j558xkqcxs" path="res://background.tscn" id="8_v5wh3"]
 [ext_resource type="PackedScene" uid="uid://d1gq02ye7v2nt" path="res://gags/banana_peel/banana_peel.tscn" id="9_4xyil"]
 [ext_resource type="PackedScene" uid="uid://b76sbp210fwma" path="res://levels/level3.tscn" id="10_saq5h"]
+[ext_resource type="PackedScene" uid="uid://b2jcuigt6l32y" path="res://levels/level4.tscn" id="11_v6opg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf7pa"]
+size = Vector2(320, 256)
 
 [node name="Main" type="Node"]
+script = ExtResource("1_he83c")
 
 [node name="Player" parent="." instance=ExtResource("2_psbdu")]
-position = Vector2(7384, -280)
+position = Vector2(10480, -1288)
 
 [node name="Levels" type="Node" parent="." node_paths=PackedStringArray("camera", "gagSpawner")]
 script = ExtResource("5_mvy1o")
@@ -36,6 +42,9 @@ metadata/_edit_lock_ = true
 position = Vector2(7296, -512)
 metadata/_edit_lock_ = true
 
+[node name="Level4" parent="Levels" instance=ExtResource("11_v6opg")]
+position = Vector2(11648, -1472)
+
 [node name="Camera" parent="." instance=ExtResource("4_magbm")]
 position = Vector2(480, 256)
 position_smoothing_enabled = false
@@ -49,3 +58,12 @@ throwTime = 0.75
 
 [node name="BananaPeel" parent="." instance=ExtResource("9_4xyil")]
 position = Vector2(760, 296)
+
+[node name="EndOfGame" type="Area2D" parent="."]
+position = Vector2(12152, -1424)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndOfGame"]
+position = Vector2(104, 80)
+shape = SubResource("RectangleShape2D_pf7pa")
+
+[connection signal="body_entered" from="EndOfGame" to="." method="_on_end_of_game_body_entered"]

@@ -6,6 +6,7 @@ extends Control
 @export var gags : Dictionary
 @export var gagButton : PackedScene
 @export var throwTime : float
+@export var emptyTexture : Texture
 
 var selectedGagResource : GagResource
 var activeButtons : Dictionary 
@@ -15,16 +16,14 @@ func _ready():
 	create_buttons(activeGagResources)
 
 func _unhandled_input(_event : InputEvent):
-	if is_valid_item_spawn(selectedGagResource):
-		if not preview == null:
-			var mousePosition = get_global_mouse_position()
-			preview.global_position.x = 32 * round(mousePosition.x / 32)
-			preview.global_position.y = 32 * round(mousePosition.y / 32)
+	var mousePosition = get_global_mouse_position()
+	$Preview.global_position.x = 32 * round(mousePosition.x / 32)
+	$Preview.global_position.y = 32 * round(mousePosition.y / 32)
+
 	if Input.is_action_just_pressed("SPAWN_ITEM"):
 		if is_valid_item_spawn(selectedGagResource):
 			var selectedGag = gags[selectedGagResource.name].instantiate()
 			var gagPosition = Vector2()
-			var mousePosition = get_global_mouse_position()
 			gagPosition.x = 32 * round(mousePosition.x / 32)
 			gagPosition.y = 32 * round(mousePosition.y / 32)
 			#$GagHolder.add_child(selectedGag)
@@ -58,10 +57,7 @@ func remove_buttons():
 func set_selected_gag(gagResource : GagResource):
 	selectedGagResource = gagResource
 	var previewTexture = selectedGagResource.icon
-	preview = Sprite2D.new()
-	preview.texture = previewTexture
-	preview.scale = Vector2(2.0, 2.0)
-	$GagHolder.add_child(preview)
+	$Preview.texture = previewTexture
 
 func is_valid_item_spawn(gagResource : GagResource) -> bool:
 	if not selectedGagResource == null and not activeButtons[gagResource.name].is_on_cooldown():
@@ -82,7 +78,6 @@ func throw_gag(gag : Gag, gagPosition : Vector2):
 	tween.tween_callback(thrownGag.queue_free)
 	tween.tween_callback($GagHolder.add_child.bind(gag))
 	gag.position = gagPosition
-	if not preview == null:
-		preview.queue_free()
+	$Preview.texture = emptyTexture
 	#tween.tween_callback($Sprite.set_modulate.bind(Color.BLUE)).set_delay(2)
 

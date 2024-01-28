@@ -1,0 +1,209 @@
+[gd_scene load_steps=10 format=3 uid="uid://b2jcuigt6l32y"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_xv6mb"]
+[ext_resource type="Resource" uid="uid://c7iao8su5adck" path="res://gags/banana_peel/banana_peel_resource.tres" id="2_y3572"]
+[ext_resource type="Resource" uid="uid://bqoace2wfmftp" path="res://gags/tnt/tnt_resource.tres" id="3_lagcb"]
+[ext_resource type="Resource" uid="uid://gkw7lik645ms" path="res://gags/boxing_glove/boxing_glove_resource.tres" id="4_ji1db"]
+[ext_resource type="TileSet" uid="uid://d13prpleyl0h8" path="res://levels/tileset.tres" id="5_l0mj6"]
+[ext_resource type="PackedScene" uid="uid://dnvikhncxkykl" path="res://levels/room/room_class.tscn" id="6_oxvdy"]
+[ext_resource type="Texture2D" uid="uid://cmx5an0pq5fyu" path="res://gags/tnt/tnt_icon.tres" id="7_rjb4d"]
+[ext_resource type="Texture2D" uid="uid://crc3sgs3wjl7m" path="res://spritesheet.png" id="8_d46n3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whqq0"]
+atlas = ExtResource("8_d46n3")
+region = Rect2(96, 0, 64, 64)
+
+[node name="Level4" type="Node2D" node_paths=PackedStringArray("rooms")]
+script = ExtResource("1_xv6mb")
+rooms = [NodePath("Room")]
+activeGagResources = Array[Resource("res://gags/gag_resource.gd")]([ExtResource("2_y3572"), ExtResource("3_lagcb"), ExtResource("4_ji1db")])
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(2, 2)
+tile_set = ExtResource("5_l0mj6")
+format = 2
+layer_0/tile_data = PackedInt32Array(262147, 65536, 6, 262148, 65536, 6, 262149, 65536, 6, 262150, 65536, 6, 262151, 65536, 6, 262152, 65536, 6, 262153, 65536, 6, 262146, 131072, 6, 262156, 131072, 6, 262154, 65536, 6, 262155, 65536, 6, 327682, 196608, 6, 393218, 196608, 6, 458754, 131072, 6, 458755, 196608, 6, 458756, 196608, 6, 458757, 196608, 6, 458758, 196608, 6, 458759, 196608, 6, 458760, 196608, 6, 458761, 196608, 6, 458762, 196608, 6, 458763, 196608, 6, 458764, 131072, 6, 327692, 196608, 6, 393228, 196608, 6, 262158, 196608, 6, 262157, 196608, 6, 262145, 196608, 6, 262144, 196608, 6)
+
+[node name="Room" parent="." instance=ExtResource("6_oxvdy")]
+position = Vector2(480, 256)
+isStartRoom = true
+
+[node name="TntIcon" type="Sprite2D" parent="."]
+position = Vector2(232, 376)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon2" type="Sprite2D" parent="."]
+position = Vector2(288, 392)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon3" type="Sprite2D" parent="."]
+position = Vector2(320, 328)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon4" type="Sprite2D" parent="."]
+position = Vector2(376, 344)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon5" type="Sprite2D" parent="."]
+position = Vector2(344, 400)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon6" type="Sprite2D" parent="."]
+position = Vector2(400, 416)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon7" type="Sprite2D" parent="."]
+position = Vector2(432, 352)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon8" type="Sprite2D" parent="."]
+position = Vector2(488, 368)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon9" type="Sprite2D" parent="."]
+position = Vector2(456, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon10" type="Sprite2D" parent="."]
+position = Vector2(512, 376)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon11" type="Sprite2D" parent="."]
+position = Vector2(544, 312)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon12" type="Sprite2D" parent="."]
+position = Vector2(600, 328)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon13" type="Sprite2D" parent="."]
+position = Vector2(568, 384)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon14" type="Sprite2D" parent="."]
+position = Vector2(624, 400)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon15" type="Sprite2D" parent="."]
+position = Vector2(656, 336)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon16" type="Sprite2D" parent="."]
+position = Vector2(712, 352)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon17" type="Sprite2D" parent="."]
+position = Vector2(261.215, 365.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon18" type="Sprite2D" parent="."]
+position = Vector2(317.215, 381.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon19" type="Sprite2D" parent="."]
+position = Vector2(349.215, 317.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon20" type="Sprite2D" parent="."]
+position = Vector2(405.215, 333.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon21" type="Sprite2D" parent="."]
+position = Vector2(373.215, 389.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon22" type="Sprite2D" parent="."]
+position = Vector2(429.215, 405.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon23" type="Sprite2D" parent="."]
+position = Vector2(461.215, 341.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon24" type="Sprite2D" parent="."]
+position = Vector2(517.215, 357.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon25" type="Sprite2D" parent="."]
+position = Vector2(485.215, 349.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon26" type="Sprite2D" parent="."]
+position = Vector2(541.215, 365.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon27" type="Sprite2D" parent="."]
+position = Vector2(573.215, 301.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon28" type="Sprite2D" parent="."]
+position = Vector2(629.215, 317.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon29" type="Sprite2D" parent="."]
+position = Vector2(597.215, 373.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon30" type="Sprite2D" parent="."]
+position = Vector2(653.215, 389.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon31" type="Sprite2D" parent="."]
+position = Vector2(685.215, 325.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="TntIcon32" type="Sprite2D" parent="."]
+position = Vector2(741.215, 341.215)
+rotation = -0.743641
+scale = Vector2(2, 2)
+texture = ExtResource("7_rjb4d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(488, 136)
+texture = SubResource("AtlasTexture_whqq0")

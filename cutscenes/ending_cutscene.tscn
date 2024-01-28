@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjwx6jfavbsxu"]
+
+[ext_resource type="Script" path="res://cutscenes/ending_cutscene.gd" id="1_s1ax1"]
+[ext_resource type="Texture2D" uid="uid://cou2ab1dqodjf" path="res://cutscenes/cutscene_drawings/3.png" id="2_yvuqm"]
+[ext_resource type="Texture2D" uid="uid://clxh8h6wu3ilv" path="res://cutscenes/cutscene_drawings/4.png" id="3_cqew6"]
+[ext_resource type="Texture2D" uid="uid://mwemwfetxyan" path="res://cutscenes/cutscene_drawings/5.png" id="4_ymead"]
+
+[node name="Cutscene" type="TextureRect"]
+offset_right = 960.0
+offset_bottom = 512.0
+script = ExtResource("1_s1ax1")
+drawings = Array[Texture]([ExtResource("2_yvuqm"), ExtResource("3_cqew6"), ExtResource("4_ymead")])
