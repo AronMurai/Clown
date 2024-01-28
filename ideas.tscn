@@ -26,3 +26,19 @@ I want it to be real time (Mr Magoo):
 - Items only activate on the ground (I don't like this b/c i want tnt banana combos)
 - Delay on when items click -> spawn
 - prevent items from being placed nearby clown (not fun)"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 176.0
+offset_right = 162.0
+offset_bottom = 225.0
+text = "Baby Boomer Game
+- Reset Button 
+- Range for items
+- Clown falls asleep at the beginning of every section...
+
+
+
+OKAY. PLAN:
+CHANGE TNT TO CLICK BASED
+CLOWN FALLS ASLEEP AT BEGINNING OF SECTION"

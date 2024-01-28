@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_xkhbg")
 name = "BANANA_PEEL"
-spawnCooldown = 10.0
+spawnCooldown = 3.0
 icon = ExtResource("1_2r5w7")

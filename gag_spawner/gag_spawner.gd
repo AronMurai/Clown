@@ -1,8 +1,11 @@
+class_name GagSpawner
 extends Control
 
+@export var player : Player
 @export var activeGagResources : Array[GagResource]
 @export var gags : Dictionary
 @export var gagButton : PackedScene
+@export var throwTime : float
 
 var selectedGagResource : GagResource
 var activeButtons : Dictionary 
@@ -12,17 +15,21 @@ func _ready():
 	create_buttons(activeGagResources)
 
 func _unhandled_input(event : InputEvent):
-	if event is InputEventMouseMotion:
-		if is_valid_item_spawn(selectedGagResource):
-			if not preview == null:
-				preview.global_position = get_global_mouse_position()
+	if is_valid_item_spawn(selectedGagResource):
+		if not preview == null:
+			var mousePosition = get_global_mouse_position()
+			preview.global_position.x = 32 * round(mousePosition.x / 32)
+			preview.global_position.y = 32 * round(mousePosition.y / 32)
 	if Input.is_action_just_pressed("SPAWN_ITEM"):
 		if is_valid_item_spawn(selectedGagResource):
 			var selectedGag = gags[selectedGagResource.name].instantiate()
-			$GagHolder.add_child(selectedGag)
-			selectedGag.position = get_global_mouse_position()
+			var gagPosition = Vector2()
+			var mousePosition = get_global_mouse_position()
+			gagPosition.x = 32 * round(mousePosition.x / 32)
+			gagPosition.y = 32 * round(mousePosition.y / 32)
+			#$GagHolder.add_child(selectedGag)
+			throw_gag(selectedGag, gagPosition)
 			activeButtons[selectedGagResource.name].activate_cooldown()
-			preview.queue_free()
 
 func update_buttons(gagResources : Array[GagResource]):
 	remove_buttons()
@@ -59,5 +66,22 @@ func is_valid_item_spawn(gagResource : GagResource) -> bool:
 	if not selectedGagResource == null and not activeButtons[gagResource.name].is_on_cooldown():
 		return true
 	return false
-	
-	
+
+func throw_gag(gag : Gag, gagPosition : Vector2):
+	var thrownGag = Sprite2D.new()
+	thrownGag.position = player.position
+	thrownGag.texture = gag.gagResource.icon
+	thrownGag.scale = Vector2(2.0, 2.0)
+	$GagHolder.add_child(thrownGag)
+	var tween = get_tree().create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(thrownGag, "rotation", 270, throwTime)
+	tween.tween_property(thrownGag, "position", gagPosition, throwTime)
+	tween.set_parallel(false)
+	tween.tween_callback(thrownGag.queue_free)
+	tween.tween_callback($GagHolder.add_child.bind(gag))
+	gag.position = gagPosition
+	if not preview == null:
+		preview.queue_free()
+	#tween.tween_callback($Sprite.set_modulate.bind(Color.BLUE)).set_delay(2)
+

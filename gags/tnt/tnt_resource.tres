@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_qjy8c")
 name = "TNT"
-spawnCooldown = 10.0
+spawnCooldown = 5.0
 icon = ExtResource("1_xuxry")

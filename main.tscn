@@ -1,24 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://cf7s4cqfn4ly1"]
+[gd_scene load_steps=8 format=3 uid="uid://cf7s4cqfn4ly1"]
 
 [ext_resource type="PackedScene" uid="uid://c4es86373kq26" path="res://player/player.tscn" id="2_psbdu"]
 [ext_resource type="PackedScene" uid="uid://6y5ct0eh1hxa" path="res://gag_spawner/gag_spawner.tscn" id="3_8jvfe"]
+[ext_resource type="PackedScene" uid="uid://dr44gv2w7j8ga" path="res://levels/level0.tscn" id="3_u70ck"]
 [ext_resource type="PackedScene" uid="uid://cvlcyw1b0b7wp" path="res://camera/camera.tscn" id="4_magbm"]
-[ext_resource type="PackedScene" uid="uid://nba7yyb3f3da" path="res://levels/level_0.tscn" id="5_7si3e"]
-[ext_resource type="Script" path="res://levels.gd" id="5_mvy1o"]
+[ext_resource type="Script" path="res://levels/levels.gd" id="5_mvy1o"]
+[ext_resource type="PackedScene" uid="uid://cysy8l8xc3law" path="res://levels/level1.tscn" id="6_2eiwu"]
+[ext_resource type="PackedScene" uid="uid://dd0udol7f2jns" path="res://levels/level2.tscn" id="7_0ndgd"]
 
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("2_psbdu")]
-position = Vector2(176, 296)
+position = Vector2(96, 416)
 
-[node name="Levels" type="Node" parent="."]
+[node name="Levels" type="Node" parent="." node_paths=PackedStringArray("camera", "gagSpawner")]
 script = ExtResource("5_mvy1o")
-cameraPath = NodePath("../Camera")
+camera = NodePath("../Camera")
+gagSpawner = NodePath("../Camera/GagSpawner")
 
-[node name="Level1" parent="Levels" instance=ExtResource("5_7si3e")]
+[node name="Level0" parent="Levels" instance=ExtResource("3_u70ck")]
+metadata/_edit_lock_ = true
+
+[node name="Level1" parent="Levels" instance=ExtResource("6_2eiwu")]
+position = Vector2(2880, 64)
+metadata/_edit_lock_ = true
+
+[node name="Level2" parent="Levels" instance=ExtResource("7_0ndgd")]
+position = Vector2(4800, -320)
+metadata/_edit_lock_ = true
 
 [node name="Camera" parent="." instance=ExtResource("4_magbm")]
 position = Vector2(480, 256)
+position_smoothing_enabled = false
 metadata/_edit_lock_ = true
 
-[node name="GagSpawner" parent="Camera" instance=ExtResource("3_8jvfe")]
+[node name="GagSpawner" parent="Camera" node_paths=PackedStringArray("player") instance=ExtResource("3_8jvfe")]
+player = NodePath("../../Player")
+throwTime = 0.75

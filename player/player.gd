@@ -32,6 +32,7 @@ func _physics_process(delta):
 		flip_direction()
 	
 	$FrontRayCast2D.target_position = moveDirection * $CollisionShape2D.shape.size.x/1.9
+	#Is this bad?? V
 	$GroundRayCast2D.target_position = Vector2(moveDirection.x * $CollisionShape2D.shape.size.x, $CollisionShape2D.shape.size.y) / 1.9  
 	
 	if not stunned:
