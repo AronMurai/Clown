@@ -14,7 +14,7 @@ var preview : Sprite2D
 func _ready():
 	create_buttons(activeGagResources)
 
-func _unhandled_input(event : InputEvent):
+func _unhandled_input(_event : InputEvent):
 	if is_valid_item_spawn(selectedGagResource):
 		if not preview == null:
 			var mousePosition = get_global_mouse_position()
