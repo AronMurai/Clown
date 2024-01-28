@@ -23,6 +23,7 @@ func _on_body_entered(body):
 
 func _input(_event):
 	if Input.is_action_just_pressed("FORCE_UPDATE_CAMERA"):
+		print(get_overlapping_bodies())
 		for body in get_overlapping_bodies():
 			if body is Player:
 				emit_signal("player_entered_room", global_position, $CollisionShape2D.shape.extents * scale)

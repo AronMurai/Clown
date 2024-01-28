@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf7s4cqfn4ly1"]
+[gd_scene load_steps=11 format=3 uid="uid://cf7s4cqfn4ly1"]
 
 [ext_resource type="PackedScene" uid="uid://c4es86373kq26" path="res://player/player.tscn" id="2_psbdu"]
 [ext_resource type="PackedScene" uid="uid://6y5ct0eh1hxa" path="res://gag_spawner/gag_spawner.tscn" id="3_8jvfe"]
@@ -9,11 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://dd0udol7f2jns" path="res://levels/level2.tscn" id="7_0ndgd"]
 [ext_resource type="PackedScene" uid="uid://do0j558xkqcxs" path="res://background.tscn" id="8_v5wh3"]
 [ext_resource type="PackedScene" uid="uid://d1gq02ye7v2nt" path="res://gags/banana_peel/banana_peel.tscn" id="9_4xyil"]
+[ext_resource type="PackedScene" uid="uid://b76sbp210fwma" path="res://levels/level3.tscn" id="10_saq5h"]
 
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("2_psbdu")]
-position = Vector2(1856, 216)
+position = Vector2(7384, -280)
 
 [node name="Levels" type="Node" parent="." node_paths=PackedStringArray("camera", "gagSpawner")]
 script = ExtResource("5_mvy1o")
@@ -29,6 +30,11 @@ metadata/_edit_lock_ = true
 
 [node name="Level2" parent="Levels" instance=ExtResource("7_0ndgd")]
 position = Vector2(4800, -320)
+metadata/_edit_lock_ = true
+
+[node name="Level3" parent="Levels" instance=ExtResource("10_saq5h")]
+position = Vector2(7296, -512)
+metadata/_edit_lock_ = true
 
 [node name="Camera" parent="." instance=ExtResource("4_magbm")]
 position = Vector2(480, 256)
