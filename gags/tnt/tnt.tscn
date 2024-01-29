@@ -13,7 +13,6 @@ position = Vector2(276, 151)
 collision_layer = 2
 collision_mask = 4
 input_pickable = true
-gravity_scale = 0.0
 script = ExtResource("1_s7v2y")
 explosionMagnitude = 1000.0
 stunTime = 2.0

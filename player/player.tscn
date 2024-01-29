@@ -55,6 +55,7 @@ frame_progress = 0.432414
 shape = SubResource("RectangleShape2D_omfkw")
 
 [node name="FrontRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 16)
 target_position = Vector2(0, 0)
 collision_mask = 4
 

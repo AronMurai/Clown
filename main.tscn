@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cf7s4cqfn4ly1"]
+[gd_scene load_steps=15 format=3 uid="uid://cf7s4cqfn4ly1"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_he83c"]
+[ext_resource type="PackedScene" uid="uid://xul1d2wye0b0" path="res://gags/tnt/explosion.tscn" id="2_3h5v0"]
 [ext_resource type="PackedScene" uid="uid://c4es86373kq26" path="res://player/player.tscn" id="2_psbdu"]
 [ext_resource type="PackedScene" uid="uid://6y5ct0eh1hxa" path="res://gag_spawner/gag_spawner.tscn" id="3_8jvfe"]
 [ext_resource type="PackedScene" uid="uid://dr44gv2w7j8ga" path="res://levels/level0.tscn" id="3_u70ck"]
@@ -9,18 +10,20 @@
 [ext_resource type="PackedScene" uid="uid://cysy8l8xc3law" path="res://levels/level1.tscn" id="6_2eiwu"]
 [ext_resource type="PackedScene" uid="uid://dd0udol7f2jns" path="res://levels/level2.tscn" id="7_0ndgd"]
 [ext_resource type="PackedScene" uid="uid://do0j558xkqcxs" path="res://background.tscn" id="8_v5wh3"]
-[ext_resource type="PackedScene" uid="uid://d1gq02ye7v2nt" path="res://gags/banana_peel/banana_peel.tscn" id="9_4xyil"]
 [ext_resource type="PackedScene" uid="uid://b76sbp210fwma" path="res://levels/level3.tscn" id="10_saq5h"]
 [ext_resource type="PackedScene" uid="uid://b2jcuigt6l32y" path="res://levels/level4.tscn" id="11_v6opg"]
+[ext_resource type="AudioStream" uid="uid://c8po685ctx5re" path="res://clown-song.wav" id="13_25ops"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pf7pa"]
 size = Vector2(320, 256)
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("player")]
 script = ExtResource("1_he83c")
+player = NodePath("Player")
+explosion = ExtResource("2_3h5v0")
 
 [node name="Player" parent="." instance=ExtResource("2_psbdu")]
-position = Vector2(10480, -1288)
+position = Vector2(88, 416)
 
 [node name="Levels" type="Node" parent="." node_paths=PackedStringArray("camera", "gagSpawner")]
 script = ExtResource("5_mvy1o")
@@ -56,9 +59,6 @@ throwTime = 0.75
 
 [node name="Background" parent="." instance=ExtResource("8_v5wh3")]
 
-[node name="BananaPeel" parent="." instance=ExtResource("9_4xyil")]
-position = Vector2(760, 296)
-
 [node name="EndOfGame" type="Area2D" parent="."]
 position = Vector2(12152, -1424)
 
@@ -66,4 +66,15 @@ position = Vector2(12152, -1424)
 position = Vector2(104, 80)
 shape = SubResource("RectangleShape2D_pf7pa")
 
+[node name="TentPosition" type="Node2D" parent="."]
+position = Vector2(12136, -1328)
+
+[node name="ExplosionPosition" type="Node2D" parent="."]
+position = Vector2(12120, -1096)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_25ops")
+autoplay = true
+
 [connection signal="body_entered" from="EndOfGame" to="." method="_on_end_of_game_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
